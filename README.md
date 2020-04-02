@@ -1,4 +1,4 @@
-# COVID 19 in England - assorted data and visualisation
+# COVID 19 in England - assorted data and visualisations
 ---
 Hello!
 
