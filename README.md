@@ -8,6 +8,5 @@ I'm focussing on how COVID is developing in Upper Tier Local Authorities, starti
 
 For conveniences, I have stitched the daily images into a 90 second animated GIF 
 
-![Map loop](https://github.com/StevePeters/covid/blob/master/img/COVID_England_daily_map_loop.gif | width=100)
-<img src="https://github.com/StevePeters/covid/blob/master/img/COVID_England_daily_map_loop.gif">
+<img src="https://github.com/StevePeters/covid/blob/master/img/COVID_England_daily_map_loop.gif" width="400">
 
