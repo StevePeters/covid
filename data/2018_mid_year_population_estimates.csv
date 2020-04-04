@@ -1,0 +1,150 @@
+"AreaCode","LAD19NM","MYE_2018_total"
+"E06000003","Redcar and Cleveland",136700
+"E06000009","Blackpool",139300
+"E06000010","Kingston upon Hull, City of",260600
+"E06000011","East Riding of Yorkshire",339600
+"E06000015","Derby",257200
+"E06000017","Rutland",39700
+"E06000024","North Somerset",213900
+"E06000039","Slough",149100
+"E06000040","Windsor and Maidenhead",150900
+"E06000041","Wokingham",168000
+"E06000045","Southampton",252800
+"E06000047","County Durham",527000
+"E06000052","Cornwall and Isles of Scilly",566000
+"E06000056","Central Bedfordshire",283600
+"E06000058","Bournemouth, Christchurch and Poole",395800
+"E08000007","Stockport",291800
+"E08000011","Knowsley",149600
+"E08000012","Liverpool",494800
+"E08000015","Wirral",323200
+"E08000016","Barnsley",245200
+"E08000024","Sunderland",277400
+"E08000029","Solihull",214900
+"E06000001","Hartlepool",93200
+"E06000005","Darlington",106600
+"E06000007","Warrington",209500
+"E06000016","Leicester",355200
+"E06000019","Herefordshire, County of",192100
+"E06000026","Plymouth",263100
+"E06000030","Swindon",222000
+"E06000031","Peterborough",201000
+"E06000035","Medway",277900
+"E06000037","West Berkshire",158500
+"E06000043","Brighton and Hove",290400
+"E06000049","Cheshire East",380800
+"E06000054","Wiltshire",498100
+"E08000001","Bolton",285400
+"E08000002","Bury",190100
+"E08000005","Rochdale",220000
+"E08000006","Salford",254400
+"E08000021","Newcastle upon Tyne",300200
+"E08000025","Birmingham",1141400
+"E08000026","Coventry",366800
+"E08000030","Walsall",283400
+"E08000033","Calderdale",210100
+"E08000034","Kirklees",438700
+"E09000010","Enfield",333900
+"E06000002","Middlesbrough",140500
+"E06000004","Stockton-on-Tees",197200
+"E06000006","Halton",128400
+"E06000018","Nottingham",331100
+"E06000025","South Gloucestershire",282600
+"E06000027","Torbay",135800
+"E06000032","Luton",214100
+"E06000033","Southend-on-Sea",182500
+"E06000034","Thurrock",172500
+"E06000036","Bracknell Forest",121700
+"E06000050","Cheshire West and Chester",340500
+"E06000051","Shropshire",320300
+"E06000059","Dorset",376500
+"E08000003","Manchester",547600
+"E08000004","Oldham",235600
+"E08000008","Tameside",225200
+"E08000009","Trafford",236400
+"E08000010","Wigan",326100
+"E08000017","Doncaster",310500
+"E08000023","South Tyneside",150300
+"E08000028","Sandwell",327400
+"E08000031","Wolverhampton",262000
+"E08000035","Leeds",789200
+"E09000002","Barking and Dagenham",212000
+"E09000006","Bromley",331100
+"E09000015","Harrow",250100
+"E09000018","Hounslow",270800
+"E09000020","Kensington and Chelsea",156200
+"E09000022","Lambeth",325900
+"E10000006","Cumbria",498900
+"E10000013","Gloucestershire",633600
+"E10000014","Hampshire",1376300
+"E10000015","Hertfordshire",1184400
+"E10000031","Warwickshire",571000
+"E09000012","Hackney and City of London",279700
+"E09000025","Newham",352000
+"E09000028","Southwark",317300
+"E09000030","Tower Hamlets",317700
+"E09000032","Wandsworth",326500
+"E10000007","Derbyshire",796100
+"E10000019","Lincolnshire",755800
+"E10000020","Norfolk",903700
+"E10000024","Nottinghamshire",823100
+"E10000025","Oxfordshire",687500
+"E06000008","Blackburn with Darwen",148900
+"E06000012","North East Lincolnshire",159800
+"E06000013","North Lincolnshire",172000
+"E06000014","York",209900
+"E06000020","Telford and Wrekin",177800
+"E06000021","Stoke-on-Trent",255800
+"E06000022","Bath and North East Somerset",192100
+"E06000023","Bristol, City of",463400
+"E06000038","Reading",163200
+"E06000042","Milton Keynes",268600
+"E06000044","Portsmouth",215100
+"E06000046","Isle of Wight",141500
+"E06000055","Bedford",171600
+"E06000057","Northumberland",320300
+"E08000013","St. Helens",180000
+"E08000014","Sefton",275400
+"E08000018","Rotherham",264700
+"E08000019","Sheffield",582500
+"E08000022","North Tyneside",206000
+"E08000027","Dudley",320600
+"E09000004","Bexley",247300
+"E09000005","Brent",330800
+"E09000007","Camden",262200
+"E09000008","Croydon",385300
+"E08000032","Bradford",537200
+"E08000036","Wakefield",345000
+"E08000037","Gateshead",202500
+"E09000003","Barnet",392100
+"E09000014","Haringey",270600
+"E09000017","Hillingdon",304800
+"E09000019","Islington",239100
+"E09000021","Kingston upon Thames",175500
+"E09000023","Lewisham",303500
+"E09000026","Redbridge",303900
+"E10000003","Cambridgeshire",651500
+"E10000011","East Sussex",554600
+"E10000012","Essex",1477800
+"E10000016","Kent",1568600
+"E10000017","Lancashire",1210100
+"E10000018","Leicestershire",698300
+"E10000023","North Yorkshire",614500
+"E10000034","Worcestershire",592100
+"E09000009","Ealing",342000
+"E09000011","Greenwich",286200
+"E09000013","Hammersmith and Fulham",185400
+"E09000016","Havering",257800
+"E09000024","Merton",206200
+"E09000027","Richmond upon Thames",196900
+"E09000029","Sutton",204500
+"E09000031","Waltham Forest",276700
+"E09000033","Westminster",255300
+"E10000002","Buckinghamshire",540100
+"E10000008","Devon",795300
+"E10000021","Northamptonshire",747600
+"E10000027","Somerset",559400
+"E10000028","Staffordshire",875200
+"E10000029","Suffolk",758600
+"E10000030","Surrey",1189900
+"E10000032","West Sussex",858900
