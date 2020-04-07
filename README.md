@@ -6,10 +6,13 @@ This is my assorted set of data and visualisations about the COVID 19 emergency 
 
 I'm focussing on how COVID is developing in Upper Tier Local Authorities.
 
-My first attempt is a series of static maps showing daily growth in cases nationally and in English Regions.  I have published these to the 'img' folder in this repo. The Python code published here too (NB: I'm still a Python noob so please be nice!).  
+My first attempt is a series of static maps showing daily cumulative growth in the number of cases by English Upper Tier Local Authorities.  I've also made a similar series showing the daily number of cases per 100,000 people, also by UTLA. 
 
-For conveniences, I have stitched the daily images into a 90 second animated GIF 
-<img src="https://github.com/StevePeters/covid/blob/master/img/COVID_England_daily_map_loop.gif" width="400">
+I have published these to the 'img' folder in this repo. The Python code published here too (NB: I'm still a Python noob so please be nice!).  
+
+For conveniences, I have stitched the daily images into a 60 second animated GIF 
+<img src="img_casecounts/covid_cum_cases.gif" width="400">
+<img src="img_per100k/covid_pop_ratios.gif" width="400">
 
 Huge thanks to Ordnance Survey for the BoundaryLine data, which I've used to create the GeoPackage of English Upper Tier Authorities, cross referenced to their parent Region.   Data is available in the 'data' folder.
 
