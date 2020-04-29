@@ -43,14 +43,19 @@ df_mypops = pd.read_csv("data/2018_mid_year_population_estimates.csv")
 df_mypops["MYE_2018_total"] = df_mypops["MYE_2018_total"].apply(pd.to_numeric,errors='coerce')
 
 # load latest case counts
-utla_case_counts_url="https://raw.githubusercontent.com/tomwhite/covid-19-uk-data/master/data/covid-19-cases-uk.csv"
+utla_case_counts_url="https://coronavirus.data.gov.uk/downloads/csv/coronavirus-cases_latest.csv"
 s=requests.get(utla_case_counts_url).text
 df=pd.read_csv(StringIO(s),parse_dates=True)
+df.rename(columns={'Daily lab-confirmed cases': 'TotalCases'}, inplace=True)
+df.rename(columns={'Specimen date': 'Date'}, inplace=True)
+df.rename(columns={'Area code': 'AreaCode'}, inplace=True)
+df.rename(columns={'Area name': 'Area'}, inplace=True)
+df.drop(columns=['Previously reported daily cases', 'Change in daily cases', 'Cumulative lab-confirmed cases', 'Previously reported cumulative cases', 'Change in cumulative cases'], inplace=True)
 
 
 # fix data type errors
-df.drop(df.loc[df['Country']=="Scotland"].index, inplace=True)
-df.drop(df.loc[df['Country']=="Wales"].index, inplace=True)
+df.drop(df.loc[df['Area type']=="Region"].index, inplace=True)
+df.drop(df.loc[df['Area type']=="Nation"].index, inplace=True)
 df["TotalCases"] = df["TotalCases"].apply(pd.to_numeric,errors='coerce')
 df.loc[df.Area=='To be confirmed', 'AreaCode'] = "TBC"
 df.loc[df.Area=='awaiting clarification', 'AreaCode'] = "AWC"
@@ -75,6 +80,7 @@ df_pr['popRatio']=((df_pr.cumCases/df_pr.MYE_2018_total) * 100000)
 
 #  get unique list of dates
 dict_date_range=df_pr.Date.unique()
+dict_date_range.sort()
 dict_regions=utla_geom_data.RGN19CD.unique()
 
 # set up map parameters
@@ -95,7 +101,9 @@ for td in dict_date_range:
         dfilter=df_pr['Date'] == td
         thisDateDF=(df_pr[dfilter])
         setForMap = utla_geom_data.set_index('AreaCode').join(thisDateDF.set_index('AreaCode'))
-    
+        setForMap["cumCases"].fillna(0, inplace = True)
+        setForMap["MYE_2018_total"].fillna(0, inplace = True)
+        setForMap["popRatio"].fillna(0, inplace = True)
         vmax=setForMap["popRatio"].max()
 
         fig = plt.figure(constrained_layout=False,figsize=[50,10])

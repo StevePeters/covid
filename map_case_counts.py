@@ -37,13 +37,19 @@ utla_geom_data['coords'] = utla_geom_data['geometry'].apply(lambda x: x.represen
 utla_geom_data['coords'] = [coords[0] for coords in utla_geom_data['coords']]
 
 # load latest case counts
-utla_case_counts_url="https://raw.githubusercontent.com/tomwhite/covid-19-uk-data/master/data/covid-19-cases-uk.csv"
+utla_case_counts_url="https://coronavirus.data.gov.uk/downloads/csv/coronavirus-cases_latest.csv"
 s=requests.get(utla_case_counts_url).text
 df=pd.read_csv(StringIO(s),parse_dates=True)
+df.rename(columns={'Daily lab-confirmed cases': 'TotalCases'}, inplace=True)
+df.rename(columns={'Specimen date': 'Date'}, inplace=True)
+df.rename(columns={'Area code': 'AreaCode'}, inplace=True)
+df.rename(columns={'Area name': 'Area'}, inplace=True)
+df.drop(columns=['Previously reported daily cases', 'Change in daily cases', 'Cumulative lab-confirmed cases', 'Previously reported cumulative cases', 'Change in cumulative cases'], inplace=True)
+
 
 # fix data type errors
-df.drop(df.loc[df['Country']=="Scotland"].index, inplace=True)
-df.drop(df.loc[df['Country']=="Wales"].index, inplace=True)
+df.drop(df.loc[df['Area type']=="Region"].index, inplace=True)
+df.drop(df.loc[df['Area type']=="Nation"].index, inplace=True)
 df["TotalCases"] = df["TotalCases"].apply(pd.to_numeric,errors='coerce')
 df.loc[df.Area=='To be confirmed', 'AreaCode'] = "TBC"
 df.loc[df.Area=='awaiting clarification', 'AreaCode'] = "AWC"
@@ -62,6 +68,7 @@ df.reset_index(inplace=True)
 
 #  get unique list of dates
 dict_date_range=df.Date.unique()
+dict_date_range.sort()
 dict_regions=utla_geom_data.RGN19CD.unique()
 
 # set up map parameters
@@ -83,6 +90,7 @@ for td in dict_date_range:
         dfilter=df['Date'] == td
         thisDateDF=(df[dfilter])
         setForMap = utla_geom_data.set_index('AreaCode').join(thisDateDF.set_index('AreaCode'))
+        setForMap["cumCases"].fillna(0, inplace = True)
         
         fig = plt.figure(constrained_layout=False,figsize=[50,10])
         fig.suptitle('COVID-19 cumulative cases since 9 Mar 20 in English Upper Tier LAs: ' + tdt, fontdict=fontMainhead, x=0.506)
