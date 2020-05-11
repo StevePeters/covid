@@ -30,7 +30,7 @@ def drawChart( gPos, ctitle, setForMap ):
     
   
 # load UTLA boundaries
-latestDate=datetime.strptime('2020-03-09', "%Y-%m-%d")
+latestDate=datetime.strptime('2020-03-20', "%Y-%m-%d")
 utla_geom_url = "/Users/stevepeters/Documents/GitHub/covid/data/utla_regions.gpkg"
 utla_geom_data = gpd.read_file(utla_geom_url)
 utla_geom_data['coords'] = utla_geom_data['geometry'].apply(lambda x: x.representative_point().coords[:])
