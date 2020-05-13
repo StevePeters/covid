@@ -50,7 +50,7 @@ df.rename(columns={'Daily lab-confirmed cases': 'TotalCases'}, inplace=True)
 df.rename(columns={'Specimen date': 'Date'}, inplace=True)
 df.rename(columns={'Area code': 'AreaCode'}, inplace=True)
 df.rename(columns={'Area name': 'Area'}, inplace=True)
-df.drop(columns=['Previously reported daily cases', 'Change in daily cases', 'Cumulative lab-confirmed cases', 'Previously reported cumulative cases', 'Change in cumulative cases'], inplace=True)
+df.drop(columns=['Previously reported daily cases', 'Change in daily cases', 'Cumulative lab-confirmed cases', 'Previously reported cumulative cases', 'Change in cumulative cases', 'Cumulative lab-confirmed cases rate'], inplace=True)
 
 
 # fix data type errors
