@@ -62,7 +62,7 @@
         $('#vcontainer').hide();
         
         d3.queue()
-        .defer(d3.json, "http://dclgapps.communities.gov.uk/scriptLib/gf.php?url=https://coronavirus.data.gov.uk/downloads/json/coronavirus-cases_latest.json")
+        .defer(d3.json, "https://dclgapps.communities.gov.uk/scriptLib/gf.php?url=https://coronavirus.data.gov.uk/downloads/json/coronavirus-cases_latest.json")
         .defer(d3.json, "https://opendata.arcgis.com/datasets/3ba3daf9278f47daba0f561889c3521a_0.geojson")
         .await(function(error, dataCases, dataRegions) {
             $('#header').show();
