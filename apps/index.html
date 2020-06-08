@@ -58,8 +58,9 @@
         $( document ).ready( drawViz );
         
         function drawViz() {
-        $('#header').hide();
-        $('#vcontainer').hide();
+          $('#scontainer').hide();
+          $('#header').hide();
+          $('#vcontainer').hide();
         
         d3.queue()
         .defer(d3.json, "https://dclgapps.communities.gov.uk/scriptLib/gf.php?url=https://coronavirus.data.gov.uk/downloads/json/coronavirus-cases_latest.json")
@@ -67,6 +68,7 @@
         .await(function(error, dataCases, dataRegions) {
             $('#header').show();
             $('#vcontainer').show();
+            $('#scontainer').show();
             var color_cidc = ['#feedde','#fdd0a2','#fdae6b','#fd8d3c','#f16913','#d94801','#8c2d04'];
             var color_rpc = ['#b35806','#f1a340','#fee0b6','#f7f7f7','#d8daeb','#998ec3','#542788'];
             var color_dcc = ['#d73027','#fc8d59','#fee090','#ffffbf','#e0f3f8','#91bfdb','#4575b4'];
@@ -225,7 +227,6 @@
                             }
                         }
                         if (isMissing) {   // data for date is missing.  
-                            var ph=true;
                             dMissing.push({
                                 areaCode: tlas[0].areaCode,
                                 areaName: tlas[0].areaName,
@@ -285,7 +286,6 @@
                     
                     tcases[cindex].ch_cr_perc = 0;
                     tcases[cindex].ch_cr = 0;
-                    tcases[cindex].dailyChangeInConfirmedCasesRate = 0;
                     tcases[cindex].dailyChangeInConfirmedCasesRate = 0;
                     for (var k=1; k<lal.length; k++) {
                         // loop through cases for individual LA, capturing change
@@ -505,23 +505,22 @@
                     
                 if (vv=='dailyTotalLabConfirmedCasesRate') {
                     var crange = color_cidc;
-                    var cMin = d3.min(lad, function(d) { return d.dailyTotalLabConfirmedCasesRate;});
-                    var cMed = d3.median(lad, function(d) { return d.dailyTotalLabConfirmedCasesRate;});
-                    var cMax = d3.max(lad, function(d) { return d.dailyTotalLabConfirmedCasesRate;});
+                    cMin = d3.min(ladin, function(d) { return d.dailyTotalLabConfirmedCasesRate;});
+                    cMed = d3.median(ladin, function(d) { return d.dailyTotalLabConfirmedCasesRate;});
+                    cMax = d3.max(ladin, function(d) { return d.dailyTotalLabConfirmedCasesRate;});
                 }
                 if (vv=='ch_cr_perc') {
-                    var crange = color_rpc;
+                    crange = color_rpc;
                     //var cMin = d3.min(lad, function(d) { return d.ch_cr_perc;});
                     //var cMed = d3.median(lad, function(d) { return d.ch_cr_perc;});
                     //var cMax = d3.max(lad, function(d) { return d.ch_cr_perc;});
-                    var cMin=-10, cMax=0, cMed=10;
+                    var cMin=-5, cMax=0, cMed=5;
                 }
                 if (vv=='avgRolling7DayCaseRate') {
-                    var crange = color_dcc;
-                    var cMin = d3.min(lad, function(d) { return d.avgRolling7DayCaseRate;});
-                    var cMed = d3.median(lad, function(d) { return d.avgRolling7DayCaseRate;});
-                    var cMax = d3.max(lad, function(d) { return d.avgRolling7DayCaseRate;});
-                    
+                    crange = color_dcc;
+                    cMin = d3.min(ladin, function(d) { return d.avgRolling7DayCaseRate; });
+                    cMed = d3.median(ladin, function(d) { return d.avgRolling7DayCaseRate; });
+                    cMax = d3.max(ladin, function(d) { return d.avgRolling7DayCaseRate; });
                 }
                 
                 var myColor=d3.scaleQuantile()
@@ -772,6 +771,13 @@
                       return ((width - (legendElementWidth * 7)) + (legendElementWidth * i));
                     })
                     .attr("y", -30);
+                    
+                    $('#scontainer').position({
+                        my: 'right top',
+                        at: 'right top',
+                        of: '#laheatmap',
+                        collision: 'none'
+                    })
             
            } // drawChart
         });
@@ -801,30 +807,35 @@
     <table id='vcontainer' style="width: 1200px; margin-left: auto; margin-right: auto;">
         <tr>
             <td style="vertical-align: top; width: 270px;">
-                <p>Choose an English Region</p>
-                <div id="vc"></div>
-                <p>Choose a variable to show in the heatmap</p>
                 
-                <fieldset>
-                    <input type="radio" name="radio" id="avgRolling7DayCaseRate">
-                    <label for="avgRolling7DayCaseRate">Change: rolling 7 day average</label><br/>
-                    <input type="radio" name="radio" id="ch_cr_perc">
-                    <label for="ch_cr_perc">Daily percentage change</label><br/>
-                    <input type="radio" name="radio" id="dailyTotalLabConfirmedCasesRate">
-                    <label for="dailyTotalLabConfirmedCasesRate">Daily cumulative total</label><br/>
+                <div id="vccontainer" style="height: 155px; margin: 2px; background: #e8e8e8;">
+                    <p>Choose a variable to show in the heatmap</p>
                     
-                </fieldset>
-                
-                <p>Set the date range</p>
-                <div id="slider" class="ui-slider-handle"></div>
-                <p id="dlabel" class="dl"></p>
+                    <fieldset style="background: white;">
+                        <input type="radio" name="radio" id="avgRolling7DayCaseRate">
+                        <label for="avgRolling7DayCaseRate">Change: rolling 7 day average</label><br/>
+                        <input type="radio" name="radio" id="ch_cr_perc">
+                        <label for="ch_cr_perc">Daily percentage change</label><br/>
+                        <input type="radio" name="radio" id="dailyTotalLabConfirmedCasesRate">
+                        <label for="dailyTotalLabConfirmedCasesRate">Daily cumulative total</label><br/>
+                    </fieldset>
+                </div>
+                <div id="rccontainer" style="height: 300px; margin: 2px; background: #e8e8e8;">
+                    <p>Choose an English Region</p>
+                    <div id="vc"></div>
+                </div>
             </td>
             <td style="vertical-align: top;">
                 <div id="laheatmap" style="top: -140px;"></div>
             </td>
         </tr>
     </table>
-    
+    <div id='scontainer' style="width:300px; z-index: 99; height: 70px; margin: 2px; background: #e8e8e8;">
+        <p>Set the date range
+         <span id="dlabel" class="dl" style="float:right; position: relative;"></span></p>
+        <div id="slider" class="ui-slider-handle" style="width: 260px; margin-left: auto; margin-right: auto;"></div>
+       
+    </div>
 
 </body>
 </html>
