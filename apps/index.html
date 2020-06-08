@@ -12,11 +12,11 @@
             position: absolute;			
             text-align: left;			
             width: 220px;					
-            height: 90px;					
+            height: 115px;					
             padding: 2px;				
             font: 11px sans-serif;		
             border: 0px;		
-            border-radius: 4px;			
+            border-radius: 2px;			
             pointer-events: none;			
         }
         label, .ui-selectee {
@@ -550,7 +550,7 @@
                   var tdl = hf(IsoParse(d.specimenDate));
                   var tht = '<span style="font-size: 14px;">' + d.areaName + ': ' + tdl + '</span>';
                   tht+='<p><span style="color: red;">' + d.notes + '</span></p>';
-                  tht+'<ul>';
+                  tht+='<ul>';
                   tht+='<li>' + d.dailyTotalLabConfirmedCasesRate + ' cases per 100k people';
                   if (d.ch_cr_perc == 0 ) {
                     var pt = '- no change since previously reported value';
